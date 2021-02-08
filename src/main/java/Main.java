@@ -4,11 +4,11 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import service.UserService;
 
 public class Main {
-    public static void main(String[] args) {
-        AnnotationConfigApplicationContext context =
-                new AnnotationConfigApplicationContext(AppConfig.class);
-        UserService userService = context.getBean(UserService.class);
+    private static final AnnotationConfigApplicationContext context =
+            new AnnotationConfigApplicationContext(AppConfig.class);
 
+    public static void main(String[] args) {
+        UserService userService = context.getBean(UserService.class);
         User user = new User();
         user.setName("Bob");
         User user1 = new User();
