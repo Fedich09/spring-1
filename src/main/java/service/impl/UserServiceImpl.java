@@ -3,7 +3,6 @@ package service.impl;
 import dao.UserDao;
 import java.util.List;
 import model.User;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import service.UserService;
 
@@ -11,7 +10,7 @@ import service.UserService;
 public class UserServiceImpl implements UserService {
     private final UserDao userDao;
 
-    public UserServiceImpl(@Qualifier(value = "userDaoImpl") UserDao userDao) {
+    public UserServiceImpl(UserDao userDao) {
         this.userDao = userDao;
     }
 
