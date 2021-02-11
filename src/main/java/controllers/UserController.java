@@ -26,13 +26,22 @@ public class UserController {
     public String inject() {
         User user = new User();
         user.setName("bob");
+        User user1 = new User();
+        user1.setName("alice");
+        User user2 = new User();
+        user2.setName("john");
+        User user3 = new User();
+        user3.setName("ken");
         userService.add(user);
+        userService.add(user1);
+        userService.add(user2);
+        userService.add(user3);
         return "success";
     }
 
-    @GetMapping("/get/{id}")
-    public UserResponseDto get(@PathVariable Long id) {
-        return userMapper.toDto(userService.get(id));
+    @GetMapping("/{userId}")
+    public UserResponseDto get(@PathVariable Long userId) {
+        return userMapper.toDto(userService.get(userId));
     }
 
     @GetMapping
